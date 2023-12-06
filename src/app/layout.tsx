@@ -21,7 +21,7 @@ export default function RootLayout({
         <Navbar/>
         <div className='flex'>
         <Sidebar/>
-        <div>{children}</div>
+        <div className='w-full px-8 pt-12'>{children}</div>
         </div>
       </body>
     </html>
