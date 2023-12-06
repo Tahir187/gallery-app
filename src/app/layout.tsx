@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-
+import Navbar from "../components/navigation/navbar/page"
+import Sidebar from "../components/navigation/sidebar/page"
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -18,19 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className='border-b' style={{ backgroundColor: 'rgb(3, 83, 82)' }}>
-          <div className='flex h-16 items-center px-4 container mx-auto text-white'>
-            <p className='text-2xl'>Pics App</p>
-            <div className='ml-auto flex items-center space-x-4'>
-              <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-
-            </div>
-          </div>
+        <Navbar/>
+        <div className='flex'>
+        <Sidebar/>
+        <div>{children}</div>
         </div>
-        {children}
       </body>
     </html>
   )
