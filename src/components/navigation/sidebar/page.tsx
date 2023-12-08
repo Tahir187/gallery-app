@@ -2,6 +2,7 @@ import Folder from "@/components/icons/folder";
 import Gallery from "@/components/icons/gallery";
 import Heart from "@/components/icons/heart";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const page = () => {
   return (
@@ -12,20 +13,29 @@ const page = () => {
             Manage
           </h2>
           <div className="space-y-1">
+            {/* Gallery */}
             <Button
-              variant="secondary"
+              asChild
+              variant="ghost"
               className="w-full justify-start flex gap-2"
             >
-              <Gallery/>
+              <Link href="/gallery">
+              <Gallery />
               Gallery
+              </Link>
             </Button>
-            <Button variant="ghost" className="w-full justify-start flex gap-2">
+            {/* Albums */}
+            {/* <Button variant="ghost" className="w-full justify-start flex gap-2">
               <Folder />
               Albums
-            </Button>
-            <Button variant="ghost" className="w-full justify-start flex gap-2">
+            </Button> */}
+
+            {/* favorites */}
+            <Button asChild variant="ghost" className="w-full justify-start flex gap-2">
+              <Link href="favorites">
               <Heart />
               Favorites
+              </Link>
             </Button>
           </div>
         </div>

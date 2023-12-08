@@ -1,6 +1,8 @@
-const Download = () => {
+import { ComponentProps } from "react";
+
+const Download = (props: ComponentProps<"div">) => {
   return (
-    <div>
+    <div {...props}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
