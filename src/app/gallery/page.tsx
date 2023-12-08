@@ -14,7 +14,6 @@ const page = async () => {
     .max_results(30)
     .execute()) as { resources: SearchResult[] };
 
-  console.log(results);
   return (
     <section>
       <div className="flex flex-col gap-8">
@@ -25,10 +24,9 @@ const page = async () => {
         <div className="grid grid-cols-4 gap-4 pb-5">
           {results.resources.map((result) => (
             <CloudinaryImage
-              path="/gallery"
               key={result.public_id}
-              src={result.public_id}
-              publicId={result.public_id}
+              // src={result.public_id}
+              // publicId={result.public_id}
               imageData={result}
               width="400"
               height="300"
