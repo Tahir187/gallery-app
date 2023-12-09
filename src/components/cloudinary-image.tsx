@@ -3,9 +3,9 @@
 import Download from "@/components/icons/download";
 import Heart from "@/components/icons/heart";
 import { CldImage, CldImageProps } from "next-cloudinary";
-import { setAsFavoriteAction } from "./actions";
+import { setAsFavoriteAction } from "../app/gallery/actions";
 import { useState, useTransition } from "react";
-import { SearchResult } from "./page";
+import { SearchResult } from "../app/gallery/page";
 import FullHeart from "@/components/icons/full-heart";
 
 const CloudinaryImage = (props: {imageData:SearchResult; onUnheart?: (unheartedResource: SearchResult)=> void
@@ -39,7 +39,7 @@ const CloudinaryImage = (props: {imageData:SearchResult; onUnheart?: (unheartedR
         className="absolute top-2 right-2 text-white fill-current cursor-pointer hover:text-red-500"
       />
     }
-      <Download className="absolute top-2 left-2 text-white fill-current cursor-pointer" />
+      <Download className="absolute bottom-[4%] right-2 text-white fill-current cursor-pointer" />
     </div>
   );
 };

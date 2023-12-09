@@ -1,6 +1,7 @@
-import CloudinaryImage from "./cloudinary-image";
+
 import UploadButton from "./upload-button";
 import cloudinary from "cloudinary";
+import GalleryGrid from "./gallery-grid";
 
 export type SearchResult = {
   public_id: string;
@@ -21,21 +22,8 @@ const page = async () => {
           <h1 className="text-4xl font-bold">Gallery</h1>
           <UploadButton />
         </div>
-        <div className="grid grid-cols-4 gap-4 pb-5">
-          {results.resources.map((result) => (
-            <CloudinaryImage
-              key={result.public_id}
-              // src={result.public_id}
-              // publicId={result.public_id}
-              imageData={result}
-              width="400"
-              height="300"
-              sizes="100vw"
-              alt="Description of my image"
-            />
-          ))}
-        </div>
-      </div>
+        <GalleryGrid images={results.resources} />
+      </div> 
     </section>
   );
 };
