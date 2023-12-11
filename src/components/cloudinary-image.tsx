@@ -7,6 +7,7 @@ import { setAsFavoriteAction } from "../app/gallery/actions";
 import { useState, useTransition } from "react";
 import { SearchResult } from "../app/gallery/page";
 import FullHeart from "@/components/icons/full-heart";
+import { ImageMenu } from "./image-menu";
 
 const CloudinaryImage = (props: {imageData:SearchResult; onUnheart?: (unheartedResource: SearchResult)=> void
 }&Omit< CldImageProps, "src">) => {
@@ -26,7 +27,7 @@ const CloudinaryImage = (props: {imageData:SearchResult; onUnheart?: (unheartedR
            setAsFavoriteAction(imageData.public_id, false);
          });
        }}
-       className="absolute top-2 right-2 cursor-pointer hover:text-white text-red-500"
+       className="absolute top-2 left-2 cursor-pointer hover:text-white text-red-500"
      />
       :
       <Heart
@@ -36,10 +37,11 @@ const CloudinaryImage = (props: {imageData:SearchResult; onUnheart?: (unheartedR
             setAsFavoriteAction(imageData.public_id, true);
           });
         }}
-        className="absolute top-2 right-2 text-white fill-current cursor-pointer hover:text-red-500"
+        className="absolute top-2 left-2 text-white fill-current cursor-pointer hover:text-red-500"
       />
     }
       <Download className="absolute bottom-[4%] right-2 text-white fill-current cursor-pointer" />
+      <ImageMenu/>
     </div>
   );
 };
