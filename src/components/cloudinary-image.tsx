@@ -41,7 +41,7 @@ const CloudinaryImage = (props: {imageData:SearchResult; onUnheart?: (unheartedR
       />
     }
       <Download className="absolute bottom-[4%] right-2 text-white fill-current cursor-pointer" />
-      <ImageMenu/>
+      <ImageMenu image={imageData}/>
     </div>
   );
 };

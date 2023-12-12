@@ -25,14 +25,16 @@ const page = () => {
               </Link>
             </Button>
             {/* Albums */}
-            {/* <Button variant="ghost" className="w-full justify-start flex gap-2">
+            <Button asChild variant="ghost" className="w-full justify-start flex gap-2">
+              <Link href="/albums">
               <Folder />
               Albums
-            </Button> */}
+              </Link>
+            </Button>
 
             {/* favorites */}
             <Button asChild variant="ghost" className="w-full justify-start flex gap-2">
-              <Link href="favorites">
+              <Link href="/favorites">
               <Heart />
               Favorites
               </Link>
