@@ -1,10 +1,16 @@
-import Folder from "@/components/icons/folder";
+import FolderIcon from "@/components/icons/folderIcon";
 import Gallery from "@/components/icons/gallery";
 import Heart from "@/components/icons/heart";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import cloudinary from "cloudinary";
+import { Folder } from "@/app/albums/page";
 
-const page = () => {
+const page = async () => {
+  const { folders } = (await cloudinary.v2.api.root_folders()) as {
+    folders: Folder[];
+  };
+
   return (
     <div className="pb-12 bg-gray-300 w-1/6">
       <div className="space-y-4 py-4">
@@ -20,23 +26,41 @@ const page = () => {
               className="w-full justify-start flex gap-2"
             >
               <Link href="/gallery">
-              <Gallery />
-              Gallery
+                <Gallery />
+                Gallery
               </Link>
             </Button>
             {/* Albums */}
-            <Button asChild variant="ghost" className="w-full justify-start flex gap-2">
+            <Button
+              asChild
+              variant="ghost"
+              className="w-full justify-start flex gap-2"
+            >
               <Link href="/albums">
-              <Folder />
-              Albums
+                <FolderIcon />
+                Albums
               </Link>
             </Button>
-
+            {/* items of album */}
+            {folders.map((folder) => (
+              <Button
+                asChild
+                variant="ghost"
+                className="w-full justify-start flex gap-2"
+                key={folder.name}
+              >
+                <Link className="pl-8" href={`/albums/${folder.path}`}>{folder.name}</Link>
+              </Button>
+            ))}
             {/* favorites */}
-            <Button asChild variant="ghost" className="w-full justify-start flex gap-2">
+            <Button
+              asChild
+              variant="ghost"
+              className="w-full justify-start flex gap-2"
+            >
               <Link href="/favorites">
-              <Heart />
-              Favorites
+                <Heart />
+                Favorites
               </Link>
             </Button>
           </div>

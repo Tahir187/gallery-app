@@ -1,4 +1,4 @@
-const Folder = () => {
+const FolderIcon = () => {
   return (
     <div>
       <svg
@@ -19,4 +19,4 @@ const Folder = () => {
   );
 };
 
-export default Folder;
+export default FolderIcon;
