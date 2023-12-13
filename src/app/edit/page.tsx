@@ -1,6 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { CldImage } from "next-cloudinary";
 import { useState } from "react";
 
@@ -11,10 +13,17 @@ export default function EditPage({
     publicId: string;
   };
 }) {
-
   const [transformation, setTransformation] = useState<
-    undefined | "generative-fill" | "blur" | "grayscale" | "pixelate" | "bg-remove"
+    | undefined
+    | "generative-fill"
+    | "blur"
+    | "grayscale"
+    | "pixelate"
+    | "bg-remove"
   >();
+
+  const [pendingPrompt, setPendingPrompt] = useState("");
+  const [prompt, setPrompt] = useState("");
 
   return (
     <>
@@ -33,12 +42,22 @@ export default function EditPage({
               Clear All
             </Button>
             {/* generative fill button */}
-            <Button
-              style={{ backgroundColor: "rgb(3, 83, 82)" }}
-              onClick={() => setTransformation("generative-fill")}
-            >
-              Apply Generative Fill
-            </Button>
+            <div className="flex flex-col gap-4">
+              <Button
+                style={{ backgroundColor: "rgb(3, 83, 82)" }}
+                onClick={() => {
+                  setTransformation("generative-fill");
+                  setPrompt(pendingPrompt)
+                }}
+              >
+                Apply Generative Fill
+              </Button>
+              <Label>Prompt</Label>
+              <Input
+                value={pendingPrompt}
+                onChange={(e) => setPendingPrompt(e.currentTarget.value)}
+              />
+            </div>
             {/* blur button */}
             <Button
               style={{ backgroundColor: "rgb(3, 83, 82)" }}
@@ -84,7 +103,7 @@ export default function EditPage({
                 height="200"
                 alt="Some image"
                 crop="pad"
-                fillBackground
+                fillBackground={{ prompt }}
               />
             )}
             {/* blur image */}
