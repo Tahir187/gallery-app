@@ -11,10 +11,11 @@ export default function EditPage({
     publicId: string;
   };
 }) {
-  console.log(publicId);
+
   const [transformation, setTransformation] = useState<
     undefined | "generative-fill" | "blur" | "grayscale" | "pixelate" | "bg-remove"
   >();
+
   return (
     <>
       <section>

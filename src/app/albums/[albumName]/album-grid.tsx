@@ -4,6 +4,7 @@ import CloudinaryImage from "../../../components/cloudinary-image";
 import { SearchResult } from "@/app/gallery/page";
 
 const AlbumGrid = async ({images}:{images: SearchResult[]}) => {
+  
   return (
     <section>
         <ImageGrid
