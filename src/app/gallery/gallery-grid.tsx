@@ -3,7 +3,7 @@ import { ImageGrid } from "@/components/image-grid";
 import CloudinaryImage from "../../components/cloudinary-image";
 import { SearchResult } from "./page";
 
-const GalleryGrid = async ({images}:{images: SearchResult[]}) => {
+const GalleryGrid = ({images}:{images: SearchResult[]}) => {
   return (
     <section>
         <ImageGrid

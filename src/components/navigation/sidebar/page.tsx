@@ -12,7 +12,7 @@ const page = async () => {
   };
 
   return (
-    <div className="pb-12 bg-gray-300 w-1/6">
+    <div className="pb-12 bg-gray-300 w-1/7 h-screen sticky top-0 ">
       <div className="space-y-4 py-4">
         <div className="px-3 py-2">
           <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">

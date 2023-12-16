@@ -32,6 +32,3 @@ const GalleryPage = async ({
 };
 
 export default GalleryPage;
-{
-    params:{}
-}

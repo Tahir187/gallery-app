@@ -1,6 +1,8 @@
 import { ComponentProps } from "react";
+import React from "react";
 
 const Download = (props: ComponentProps<"div">) => {
+
   return (
     <div {...props}>
       <svg

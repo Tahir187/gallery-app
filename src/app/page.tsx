@@ -16,6 +16,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <CldUploadButton
+        className='text-white text-2xl rounded-sm p-2'
+        style={{ backgroundColor: "rgb(3, 83, 82)" }}
         onUpload={(result: UploadResult) => {
           setImageId(result.info.public_id)
         }}
