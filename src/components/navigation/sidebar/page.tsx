@@ -27,7 +27,7 @@ const page = async () => {
             >
               <Link href="/gallery">
                 <Gallery />
-                Gallery
+                <p className="hidden sm:inline">Gallery</p>
               </Link>
             </Button>
             {/* Albums */}
@@ -38,7 +38,7 @@ const page = async () => {
             >
               <Link href="/albums">
                 <FolderIcon />
-                Albums
+                <p className="hidden sm:inline">Albums</p>
               </Link>
             </Button>
             {/* items of album */}
@@ -60,7 +60,7 @@ const page = async () => {
             >
               <Link href="/favorites">
                 <Heart />
-                Favorites
+                <p className="hidden sm:inline">Favorites</p>
               </Link>
             </Button>
           </div>

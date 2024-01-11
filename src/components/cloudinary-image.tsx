@@ -22,17 +22,20 @@ const CloudinaryImage = (
     imageData.tags.includes("favorite")
   );
 
-  const handleDownload = () => {
-    const downloadUrl = process.env.NEXT_PUBLIC_DOWNLOAD_URL;
-    console.log("Download URL:", downloadUrl);
-    const imageUrl = `${downloadUrl}/${imageData.public_id}`;
-    console.log("Image URL:", imageUrl);
-    DownloadImage(imageUrl, `${imageData.public_id}`);
-    console.log("downloading");
+
+  const handleDownload = async () => {
+    try {
+      const downloadUrl = await fetch(
+        `https://res.cloudinary.com/dlxpb8ef7/image/upload/${imageData.public_id}.jpg`
+      );
+      await DownloadImage(downloadUrl, `${imageData.public_id}`);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <div className="relative">
+    <div className="relative hover:scale-110 hover:p-1">
       <CldImage {...props} src={imageData.public_id} />
       {isFavorited ? (
         <FullHeart

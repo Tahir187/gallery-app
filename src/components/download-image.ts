@@ -1,16 +1,23 @@
 
-export const DownloadImage = (imageUrl: string, imageName: string) => {
-    var element = document.createElement("a");
-    var file = new Blob(
-      [
-        imageUrl,
-        imageName
-      ],
-      { type: "image/jpg" }
-    );
-    element.href = URL.createObjectURL(file);
-    // console.log("File Object:", file);
-    element.download = "image.jpg";
-    element.click();
+export const DownloadImage = async (downloadUrl:  Response, imageName: string) => {
+    // 3rd approach
+    try {
+      const imageURL = `${downloadUrl.url}/${imageName}.jpg`;
+      console.log(imageURL);
+      const response = await fetch(imageURL);
+      const blob = await downloadUrl.blob();  // extract the blob from the Response
+  
+      const objectUrl = URL.createObjectURL(blob);
+  
+      const link = document.createElement('a');
+      link.href = objectUrl;
+      link.download = `${imageName}.jpg`;
+  
+      link.click();
+  
+      URL.revokeObjectURL(objectUrl);
+    } catch (error) {
+      console.error('Error downloading image:', error);
+    }
   };
   

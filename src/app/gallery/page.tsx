@@ -22,13 +22,13 @@ const page = async ({
     .execute()) as { resources: SearchResult[] };
 
   return (
-    <section>
+    <section className="container mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col gap-8">
-        <div className="flex justify-between">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <h1 className="text-4xl font-bold">Gallery</h1>
           <UploadButton />
         </div>
-        <SearchForm initialSearch={search}/>
+        <SearchForm initialSearch={search} />
         <GalleryGrid images={results.resources} />
       </div>
     </section>
