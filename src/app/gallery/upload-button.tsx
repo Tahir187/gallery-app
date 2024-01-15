@@ -11,7 +11,8 @@ const UploadButton = () => {
         <Button asChild style={{ backgroundColor: 'rgb(3, 83, 82)' }}>
             <CldUploadButton
                 className=''
-                onUpload={(result: UploadResult) => {
+                onUpload={(result) => {
+                    let res = result as UploadResult;
                     setTimeout(()=>{
                     router.refresh()
                     },1000)
