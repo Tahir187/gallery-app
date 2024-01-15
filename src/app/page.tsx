@@ -15,13 +15,16 @@ export default function Home() {
   const [imageId, setImageId] = useState("")
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 ">
-      <CldUploadButton
-        className='text-white text-2xl rounded-sm p-2'
-        style={{ backgroundColor: "rgb(3, 83, 82)" }}
-        onUpload={(result: UploadResult) => {
-          setImageId(result.info.public_id)
-        }}
-        uploadPreset="iaeymlgr" />
+       <div style={{ backgroundColor: "rgb(3, 83, 82)" }} className=" rounded-sm">
+        <CldUploadButton
+          className='text-white text-2xl p-2'
+          onUpload={(result) => {
+            let res = result as UploadResult;
+            setImageId(res.info.public_id);
+          }}
+          uploadPreset="iaeymlgr"
+        />
+      </div>
       {imageId && (
         <CldImage
           width="400"
