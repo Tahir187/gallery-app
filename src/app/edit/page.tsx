@@ -113,7 +113,8 @@ export default function EditPage({
                 width="300"
                 height="200"
                 alt="Some image"
-                blur="800"
+                //@ts-ignore
+                transformations ={{ effect: 'blur:800' }}
               />
             )}
             {/* gray image */}
@@ -123,7 +124,8 @@ export default function EditPage({
                 width="300"
                 height="200"
                 alt="Some image"
-                grayscale
+                //@ts-ignore
+                transformations ={{ effect: 'grayscale' }}
               />
             )}
             {/* gray image */}
@@ -133,7 +135,8 @@ export default function EditPage({
                 width="300"
                 height="200"
                 alt="Some image"
-                pixelate
+                //@ts-ignore
+                transformations ={{ effect: 'pixelate:10' }}
               />
             )}
             {/* bg-remove image */}
