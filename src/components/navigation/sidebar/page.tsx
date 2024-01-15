@@ -49,7 +49,7 @@ const page = async () => {
                 className="w-full justify-start flex gap-2"
                 key={folder.name}
               >
-                <Link className="pl-8" href={`/albums/${folder.path}`}>{folder.name}</Link>
+                <Link className="pl-8  hidden sm:flex" href={`/albums/${folder.path}`}>{folder.name}</Link>
               </Button>
             ))}
             {/* favorites */}
